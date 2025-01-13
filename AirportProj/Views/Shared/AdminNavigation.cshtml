@@ -1,0 +1,48 @@
+﻿@{
+    ViewData["Title"] = "AdminNavigation";
+}
+
+
+<div class="container">
+    <div class="row d-flex justify-content-center">
+        <div class="col-12 d-flex justify-content-center">
+            <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                <ul class="navbar-nav flex-grow-1 d-flex">
+                    
+                    <li class="nav-item mr-1">
+                        <a class="nav-link" asp-area="" asp-controller="Admins" asp-action="Index">Адмін</a>
+                    </li>
+                    
+                    <li class="nav-item mr-2">
+                        <a class="nav-link" asp-area="" asp-controller="Aeroports" asp-action="Index">Аеропорти</a>
+                    </li>
+                    <li class="nav-item mr-3">
+                        <a class="nav-link" asp-area="" asp-controller="Airlines" asp-action="Index">Авіалінії</a>
+                    </li>
+                    <li class="nav-item mr-4">
+                        <a class="nav-link" asp-area="" asp-controller="Flights" asp-action="Index">Рейси</a>
+                    </li>
+                    <li class="nav-item mr-5">
+                        <a class="nav-link" asp-area="" asp-controller="Passengers" asp-action="Index">Пассажири</a>
+                    </li>
+                    <li class="nav-item mr-6">
+                        <a class="nav-link" asp-area="" asp-controller="Planes" asp-action="Index">Літаки</a>
+                    </li>
+                    <li class="nav-item mr-7">
+                        <a class="nav-link" asp-area="" asp-controller="Services" asp-action="Index">Послуги</a>
+                    </li>
+                    <li class="nav-item mr-8">
+                        <a class="nav-link" asp-area="" asp-controller="Tickets" asp-action="Index">Квитки</a>
+                    </li>
+                </ul>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="HomePage"><img class="img" width="115px" src="~/resource/logo.png" alt="logo image" /></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+

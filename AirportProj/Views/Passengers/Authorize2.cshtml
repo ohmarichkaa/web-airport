@@ -1,0 +1,25 @@
+﻿@model AirportProj.Models.Passenger
+
+@{
+    ViewData["Title"] = "Авторизація";
+}
+
+
+<h1>Авторизація клієнта</h1>
+<hr />
+
+
+<div class="jumbotron">
+    <form asp-action="AuthorizeForTickets" method="post">
+        <div class="form-group">
+            <label asp-for="Email" class="control-label"></label>
+            <input asp-for="Email" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="PassportNum" class="control-label"></label>
+            <input asp-for="PassportNum" class="form-control" />
+        </div>
+        <br />
+        <button type="submit" class="btn btn-dark">Авторизуватися</button>
+    </form>
+</div>

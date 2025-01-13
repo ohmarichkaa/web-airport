@@ -1,0 +1,94 @@
+
+html {
+    font-size: 14px;
+    scroll-behavior: smooth;
+    font-family: 'Wix Madefor Display', sans-serif;
+}
+
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    padding-top: 120px;
+    margin-bottom: 60px;
+    background-image: url("/resource/background_clouds.jpg");
+    background-size: cover;
+}
+
+
+footer {
+    background-color: rgb(7 6 47);
+}
+
+.navbar-custom {
+    background-color: rgb(7 6 47);
+    color: aliceblue;
+}
+
+    .navbar-custom .nav-link {
+        color: aliceblue;
+        left: auto;
+        margin-right: 20px;
+        font-size: 22px;
+    }
+
+        .navbar-custom .nav-link:hover {
+            color: #f8f9fa;
+            /
+        }
+
+
+
+
+.jumbotron {
+    background-color: rgba(225, 225, 225, 0.3);
+    background-size: cover;
+    color: #fff;
+    border-radius: 15px;
+    padding: 40px;
+}
+
+@font-face {
+    font-family: 'Wix Madefor Display';
+    src: url('/resource/font/Wix_Madefor_Display/WixMadeforDisplay-VariableFont_wght.ttf') format('truetype');
+}
+
+
+table {
+    background-color: rgba(225, 225, 225, 0.5);
+    padding-left: 10px;
+    padding-right: 10px;
+    border-collapse: collapse;
+}
+
+td, th {
+    border: 1px solid white;
+    box-shadow: 2px 2px 4px #000;
+    text-align: center;
+    padding: 8px;
+    color: dimgray;
+}
+
+hr {
+    border: none;
+    border-top: 5px solid rgb(0, 154, 255);
+    color: olive;
+    margin: 20px 0;
+}
+
+image {
+    width: 100%;
+}

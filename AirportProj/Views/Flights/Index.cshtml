@@ -1,0 +1,121 @@
+﻿@model IEnumerable<AirportProj.Models.Flight>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<header>
+    <nav class="navbar fixed-top navbar-expand-sm navbar-toggleable-sm navbar-custom border-bottom box-shadow">
+        @Html.Partial("AdminNavigation")
+    </nav>
+</header>
+<h1>Інформація</h1>
+<hr />
+<div class="jumbotron">
+    <p>
+        <a asp-action="Create">Новий запис</a>
+    </p>
+    <hr />
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FlightNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DepartureDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DepartureTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ArrivalDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ArrivalTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Destination)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Aeroport)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EconomPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BizPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Airline)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Plane)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FlightNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepartureDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepartureTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ArrivalDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ArrivalTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Destination)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Aeroport.AeroportId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EconomPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BizPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Airline.AirlineId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gate.GateId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Plane.PlaneId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.FlightId">Редагувати</a> |
+                <a asp-action="Details" asp-route-id="@item.FlightId">Детальніше</a> |
+                <a asp-action="Delete" asp-route-id="@item.FlightId">Видалити</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</div>

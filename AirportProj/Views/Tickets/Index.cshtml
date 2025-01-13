@@ -1,0 +1,67 @@
+﻿@model IEnumerable<AirportProj.Models.Ticket>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<header>
+    <nav class="navbar fixed-top navbar-expand-sm navbar-toggleable-sm navbar-custom border-bottom box-shadow">
+        @Html.Partial("AdminNavigation")
+    </nav>
+</header>
+<h1>Інформація</h1>
+<hr />
+<div class="jumbotron">
+<p>
+    <a asp-action="Create">Новий запис</a>
+</p>
+<hr />
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TicketNum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Flight)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Passenger)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Class)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateOfPurch)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TicketNum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Flight.FlightId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Passenger.PassengerId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Class)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfPurch)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.TicketId">Редагувати</a> |
+                <a asp-action="Details" asp-route-id="@item.TicketId">Детальніше</a> |
+                <a asp-action="Delete" asp-route-id="@item.TicketId">Видалити</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</div>

@@ -1,0 +1,202 @@
+﻿@model AirportProj.Controllers.HomePageViewModel
+
+@{
+    ViewData["Title"] = "Головна сторінка";
+}
+
+
+<div class="text-center">
+   
+<div class="container">
+    <!-- Поиск рейсов -->
+    <div class="row">
+        <div class="col-md-12">
+                <div class="jumbotron">
+            <section id="search">
+                <h2>Пошук рейсів</h2>
+            </section>
+
+                    @using (Html.BeginForm("HomePage", "Home", FormMethod.Post))
+                    {
+                        <div class="form-group">
+                            <label for="keyword">Ключові слова:</label>
+                            <input type="text" class="form-control" id="keyword" name="keyword">
+                        </div>
+                        <div class="form-group">
+                            <label for="date">Дата:</label>
+                            <input type="date" class="form-control" id="date" name="date">
+                        </div>
+                        <div class="form-group">
+                            <label for="type">Призначення:</label>
+                            <select class="form-control" id="type" name="type">
+                                <option value="прибуття">Прибуття</option>
+                                <option value="відправлення">Відправлення</option>
+                            </select>
+                        </div>
+                        <br />
+                        <button type="submit" class="btn btn-primary">Шукати</button>
+                    }          
+                    <script>
+                        function resetForm() {
+                            document.getElementById("searchForm").reset();
+                        }
+                    </script>
+                </div>
+            
+                    <br>
+                    <br>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Номер рейсу</th>
+                                <th>Статус рейсу</th>
+                                <th>Авіакомпанія</th>
+                                <th>Призначення</th>
+                                <th>Аеропорт</th>
+                                <th>Дата відправлення</th>
+                                <th>Дата прибуття</th>
+                                <th>Ціна</th>
+                                <th>Додаткова інформація</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model.Flights != null)
+                            {
+                                foreach (var flight in Model.Flights)
+                                {
+                                    <tr>
+                                        <td>@flight.FlightNumber</td>
+                                        <td>@flight.Status</td>
+                                        <td>@flight.Airline?.Name</td>
+                                        <td>@flight.Destination</td>
+                                        <td>@flight.Aeroport?.Country, @flight.Aeroport?.City, @flight.Aeroport?.IataCode, @flight.Aeroport?.IcaoCode</td>
+                                        <td>@flight.DepartureDate.ToShortDateString() @flight.DepartureTime.ToString(@"hh\:mm")</td>
+                                        <td>@flight.ArrivalDate.ToShortDateString() @flight.ArrivalTime.ToString(@"hh\:mm")</td>                                       
+                                        <td>@flight.EconomPrice - @flight.BizPrice грн</td>
+                                        <td><a class="nav-link" asp-area="" asp-controller="Flights" asp-action="Look" asp-route-id=@flight.FlightId>Детальніше/Купити</a></td>
+                                        
+                                    </tr>
+                                }
+                            }
+                            else
+                            {
+                                <tr>
+                                    <td colspan="6">Немає даних для відображення.</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+
+        </div>
+    </div>
+    <hr>
+        <img src="~/resource/background_plane.jpg" alt="Послуги" class="img-fluid">
+        <hr>
+    <!-- Список услуг -->
+    <div class="row">
+        <div class="col-md-12">
+                <div class="jumbotron">
+            <section id="services">
+                <h2>Перелік послуг</h2>
+            </section>      
+                    <br>
+            <table class="table">
+                <tr>
+                    <th>Послуга</th>
+                    <th>Опис</th>
+                    <th>Ціна</th>
+                </tr>
+                @if (Model.Services != null)
+                {
+                            foreach (var item in Model.Services)
+                    {
+                        <tr>
+                            <td>@item.Name</td>
+                            <td>@item.Description</td>
+                            <td>@item.Price</td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <p>Немає даних для відображення.</p>
+                }
+               
+            </table>
+
+                </div>
+        </div>
+    </div>
+    <hr>
+        <img src="~/resource/airport_photo2.jpg" alt="Феропорт" class="img-fluid">
+        <hr>
+    <!-- Про аэропорт -->
+    <div class="row">
+        <div class="col-md-12">
+                <div class="jumbotron">
+            <section id="about">
+                <h2>Про аеропорт</h2>
+            </section>
+
+                    <p>Ласкаво просимо до аеропорту AviaHub!</p>
+                    <p>Аеропорт AviaHub є одним з провідних аеропортів у регіоні, забезпечуючи пасажирам високий рівень обслуговування та зручність. Наш аеропорт відомий своєю сучасною інфраструктурою, широким спектром послуг і зручним розташуванням.</p>
+                    <p>Аеропорт AviaHub має відмінне транспортне сполучення з містом та регіоном. До нас можна дістатися на автомобілі, автобусі чи потязі. Ми знаходимося у безпосередній близькості до головних автомагістралей та залізничних станцій.</p>
+                    <p>AviaHub активно впроваджує екологічно чисті технології та ініціативи для зменшення впливу на навколишнє середовище. Ми прагнемо стати "зеленим" аеропортом, який дбає про екологію та майбутні покоління.</p>
+                    <p> Наша команда професіоналів завжди готова допомогти вам у будь-яких питаннях. Ми прагнемо зробити вашу подорож комфортною та приємною.</p>
+                    <br />
+                    <p>Дякуємо, що обрали аеропорт AviaHub. Бажаємо вам приємного польоту та сподіваємось побачити вас знову!</p>
+                </div>
+        </div>
+    </div>
+</div>
+    <hr>
+    <!-- Контакті -->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="jumbotron">
+                <section id="contacts">
+                    <h2>Контакти</h2>
+                </section>
+
+                <p><strong>Ми завжди раді вам допомогти! Зв'яжіться з нами з будь-яких питань.</strong></p>
+
+                <h3>Адреса:</h3>
+                <p>
+                    Аеропорт AviaHub<br>
+                    вул. Аеропортна, 1, м. Київ, Україна, 03062
+                </p>
+
+                <h3>Телефон:</h3>
+                <p>+38 (044) 123-45-67</p>
+
+                <h3>Електронна пошта:</h3>
+                <p><a href="mailto:info@aviahub.ua">info@aviahub.ua</a></p>
+
+                <h3>Графік роботи:</h3>
+                <p>Наш аеропорт працює цілодобово, без вихідних.</p>
+
+                <h3>Соціальні мережі:</h3>
+                <p>
+                    <a href="#">Facebook</a><br>
+                    <a href="#">Instagram</a><br>
+                    <a href="#">Twitter</a>
+                </p>
+
+                <h3>Відділ обслуговування клієнтів:</h3>
+                <p>
+                    Якщо у вас виникли питання щодо обслуговування, багажу чи інших аспектів вашої подорожі, будь ласка, зв'яжіться з нашим відділом обслуговування клієнтів:<br>
+                    Телефон: +38 (044) 765-43-21<br>
+                    Електронна пошта: <a href="mailto:support@aviahub.ua">support@aviahub.ua</a>
+                </p>
+
+                <h3>Пропозиції та зауваження:</h3>
+                <p>Ми завжди прагнемо покращувати наші послуги. Надсилайте ваші пропозиції та зауваження на <a href="mailto:feedback@aviahub.ua">feedback@aviahub.ua</a>.</p>
+
+                <p>Дякуємо, що обрали аеропорт AviaHub!</p>
+            </div>
+        </div>
+    </div>
+</div>
+    
+</div>

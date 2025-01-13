@@ -1,0 +1,42 @@
+﻿@model AirportProj.Models.FlightPassengerViewModel
+
+@{
+    ViewData["Title"] = "Authorize";
+}
+
+
+<h1>Авторизація клієнта</h1>
+<hr />
+@if (!string.IsNullOrEmpty(Model.ErrorMessage))
+{
+    <div class="alert alert-danger">@Model.ErrorMessage</div>
+}
+
+<div class="jumbotron">
+    <form asp-action="Authorize" method="post">
+        <input type="hidden" asp-for="Flight.FlightId" />
+        <input type="hidden" asp-for="SelectedTicketClass" />
+        <div class="form-group">
+            <label asp-for="Passenger.Email" class="control-label"></label>
+            <input asp-for="Passenger.Email" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Passenger.PassportNum" class="control-label"></label>
+            <input asp-for="Passenger.PassportNum" class="form-control" />
+        </div>
+        <!-- Добавьте другие поля модели Passenger -->
+        <div class="form-group">
+            <label asp-for="Passenger.Surname" class="control-label"></label>
+            <input asp-for="Passenger.Surname" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Passenger.Initials" class="control-label"></label>
+            <input asp-for="Passenger.Initials" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Passenger.BirthDate" class="control-label"></label>
+            <input asp-for="Passenger.BirthDate" class="form-control" />
+        </div>
+        <button type="submit" class="btn btn-primary">Авторизуватися</button>
+    </form>
+</div>

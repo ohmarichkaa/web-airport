@@ -1,0 +1,75 @@
+﻿@model IEnumerable<AirportProj.Models.Plane>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+<header>
+    <nav class="navbar fixed-top navbar-expand-sm navbar-toggleable-sm navbar-custom border-bottom box-shadow">
+        @Html.Partial("AdminNavigation")
+    </nav>
+</header>
+<h1>Інформація</h1>
+<hr />
+<div class="jumbotron">
+    <p>
+        <a asp-action="Create">Новий запис</a>
+    </p>
+    <hr />
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.MaxDistance)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Speed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstClass)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BusinessClass)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EconomyClass)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SerialNum)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaxDistance)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Speed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstClass)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BusinessClass)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EconomyClass)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SerialNum)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.PlaneId">Редагувати</a> |
+                <a asp-action="Details" asp-route-id="@item.PlaneId">Детальніше</a> |
+                <a asp-action="Delete" asp-route-id="@item.PlaneId">Видалити</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</div>

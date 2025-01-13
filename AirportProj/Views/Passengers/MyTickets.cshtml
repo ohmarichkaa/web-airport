@@ -1,0 +1,50 @@
+﻿@model AirportProj.Models.Passenger
+
+@{
+    ViewData["Title"] = "Мої квитки";
+}
+
+<h1>Мої квитки</h1>
+<hr />
+<div class="jumbotron">
+    <h3>Пасажир: @Model.Surname @Model.Initials</h3>
+    <h3>Email: @Model.Email</h3>
+    <h3>Номер паспорта: @Model.PassportNum</h3>
+    <h3>Дата народження: @Model.BirthDate</h3>
+</div>
+<hr />
+<h2>Квитки</h2>
+<hr />
+<div class="jumbotron">
+<table class="table">
+    <thead>
+        <tr>
+            <th>Номер рейсу</th>
+            <th>Дата вильоту</th>
+            <th>Час вильоту</th>
+            <th>Клас квитка</th>
+            <th>Дата покупки</th>
+            <th>Повернути?</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var ticket in Model.Tickets)
+        {
+            <tr>
+                <td>@ticket.Flight.FlightNumber</td>
+                <td>@ticket.Flight.DepartureDate</td>
+                <td>@ticket.Flight.DepartureTime</td>
+                <td>@ticket.Class</td>
+                <td>@ticket.DateOfPurch</td>
+                <td>
+                    <form asp-action="ReturnTicket" method="post">
+                        <input type="hidden" name="ticketId" value="@ticket.TicketId" />
+                        <input type="hidden" name="passengerId" value="@Model.PassengerId" />
+                        <button type="submit" class="btn btn-dark">Повернути квиток</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+</div>

@@ -1,0 +1,19 @@
+﻿@model ErrorViewModel
+@{
+    ViewData["Title"] = "Error";
+}
+<div class="jumbotron">
+<h2 class="text-danger">Помилка.</h2>
+<h3 class="text-danger">Виникла помилка при виконанні вашого запиту.</h3>
+</div>
+<hr />
+<div class="jumbotron">
+    @if (Model.ShowRequestId)
+    {
+        <p>
+            <strong>Причина помилки:</strong> <code>@Model.RequestId</code>
+        </p>
+    }
+</div>
+
+

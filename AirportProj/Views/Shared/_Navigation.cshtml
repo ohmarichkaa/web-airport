@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewData["Title"] = "_Navigation";
+}
+<div class="container">
+    <div class="row d-flex justify-content-center">
+        <div class="col-12 d-flex justify-content-center">
+            <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                <ul class="navbar-nav flex-grow-1 d-flex">
+                    <li class="nav-item flex-grow-1 ml-1 mr-4">
+                        <a class="nav-link" href="/Home#search"> Перегляд рейсів</a>
+                    </li>                   
+
+                    <li class="nav-item mr-5">
+                        <a class="nav-link" href="/Home#services"> Послуги</a>
+                    </li>      
+                    
+
+                    
+                    <li class="nav-item mr-6">
+                        <a class="nav-link text-nowrap" href="/Home#about">Про аеропорт</a>
+                    </li>                   
+                    <li class="nav-item mr-7">
+                        <a class="nav-link text-nowrap" href="/Home#contacts">Контакти</a>
+                    </li>                    
+                    <li class="nav-item mr-7">
+                        <a class="nav-link text-nowrap" asp-area="" asp-controller="Passengers" asp-action="Authorize2"> Мої квитки</a>
+                    </li>
+
+                </ul>                               
+
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="HomePage"><img class="img" width="115px" src="~/resource/logo.png" alt="logo image" /></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+

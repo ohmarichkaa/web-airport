@@ -1,0 +1,64 @@
+﻿@model AirportProj.Models.Plane
+
+@{
+    ViewData["Title"] = "Create";
+}
+<header>
+    <nav class="navbar fixed-top navbar-expand-sm navbar-toggleable-sm navbar-custom border-bottom box-shadow">
+        @Html.Partial("AdminNavigation")
+    </nav>
+</header>
+<h1>Новий запис</h1>
+<hr />
+
+<div class="jumbotron">
+
+<h4>Plane</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="MaxDistance" class="control-label"></label>
+                <input asp-for="MaxDistance" class="form-control" />
+                <span asp-validation-for="MaxDistance" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Speed" class="control-label"></label>
+                <input asp-for="Speed" class="form-control" />
+                <span asp-validation-for="Speed" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FirstClass" class="control-label"></label>
+                <input asp-for="FirstClass" class="form-control" />
+                <span asp-validation-for="FirstClass" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BusinessClass" class="control-label"></label>
+                <input asp-for="BusinessClass" class="form-control" />
+                <span asp-validation-for="BusinessClass" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EconomyClass" class="control-label"></label>
+                <input asp-for="EconomyClass" class="form-control" />
+                <span asp-validation-for="EconomyClass" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SerialNum" class="control-label"></label>
+                <input asp-for="SerialNum" class="form-control" />
+                <span asp-validation-for="SerialNum" class="text-danger"></span>
+            </div>
+
+                <br />
+            <div class="form-group">
+                <input type="submit" value="Створити" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Назад до переліку записів</a>
+</div>
+
